@@ -1,0 +1,25 @@
+{% extends "footer.html" %}
+{% load staticfiles %}
+{% block body %}
+  
+  <div class="container">
+  <div class="row center">
+    <div class="col s9 center">
+      <h3>Submit your question here!</h3>
+      <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+</div>
+  <script>
+  
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+  
+</script>
+{% endblock %}

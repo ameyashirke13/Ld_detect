@@ -1,0 +1,27 @@
+{% extends "footer.html" %}
+{% load staticfiles %}
+
+{% block body %}
+
+        <div class="container">
+        <h3 class="center-align"><i class="material-icons">assignment</i>&nbspDiscussion Forum</h3>
+        {% for post in posts %}
+            <div class="row">
+              <div class="divider"></div>
+              <div class="section">
+                <p><b>Published: {{ post.published_date }}</b></p>
+                <h4><span style="color:#004d40">{{ post.question }}</span></h4>
+                <p>{{ post.synopsis|linebreaks }}</p>
+                <div class="left-align">
+                <a class="btn waves-effect default teal darken-4" href="/forums/{{ post.id }}/{{post.slug}}" name="action">Read More
+    <i class="material-icons right">send</i>
+  </a>
+</div>
+            </div>
+            <div class="divider"></div>
+          </div>
+        {% endfor %}
+
+        </div>
+
+{% endblock %}

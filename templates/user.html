@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+#sideNav {
+   background-color: black;
+    width: 220px;
+    position: absolute;
+    height: 100%;
+}
+
+#mainContent {
+  float: left;
+    width: 84%;
+    margin-left: 200px;
+}
+a:hover { 
+    color: grey;
+    box-shadow:0 0 0;
+}
+ul:hover{
+	box-shadow: 0 0 0;
+}
+h2:hover{
+	box-shadow: 0 0 0;
+}
+span:hover{
+	box-shadow: 0 0 0;
+}
+</style>
+</head>
+<body style="background-color:#f2f1ff;">
+
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sideNav" class="col-lg-3" style="position: fixed;background-color:#2e3d49 ;color: white;">
+        <div style="background-color: #1c262f;width:225px;position: relative;right: 20px;padding: 10px;">
+  				<a href="user.html"><h2 style="padding-left:30px; color:white;">LDD</h2></a></div>
+  			<ul class="nav nav-pills nav-stacked">
+  				<li><a href="report.html"><h4 style="color: white;">Progress Report</h4></a></li>
+  				<li><a href="#"><h4 style="color: white;">Query</h4></a></li>
+			</ul>
+			<ul class="nav nav-pills nav-stacked" style="margin-top:300px;">
+      			<li><a href="#" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+    		</ul>
+        </nav>
+
+        <div id="mainContent" class="col-lg-9">
+        	<h1 style="margin-left:20px;">Remedial Resources</h1><br>
+        	<hr style="margin-left: 30px;background-color: black;">
+        	<br>
+        	<br>
+          <div class="row" style="padding:0px 0px 20px 0px;">
+          {% for i in p %}
+          			<a href="http://127.0.0.1:8000/test/resource?mat={{i}}"> <div class="col-lg-3" style="margin-left: 50px ;margin-top:30px;width:40%;background-color: white;padding: 20px;box-shadow: 1px 1px 1px 1px grey">
+          				<h2 style="color: #404040">{{i}}</h2> <br><br><br>
+          				<hr>
+          				<button type="button" class="btn btn-default" style="position: relative;left:250px;border: 2px solid #99ccff;padding: 10px;">View Resources</button>
+          			</div></a>
+          {% endfor %}
+  			
+  			</div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

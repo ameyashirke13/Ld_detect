@@ -1,0 +1,185 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+</script>
+<style type="text/css">
+
+#sideNav {
+   background-color: black;
+    width: 220px;
+    position: absolute;
+    height: 100%;
+}
+
+#mainContent {
+  float: left;
+    width: 84%;
+    margin-left: 200px;
+}
+a:hover { 
+    color: grey;
+    box-shadow:0 0 0;
+}
+ul:hover{
+	box-shadow: 0 0 0;
+}
+h2:hover{
+	box-shadow: 0 0 0;
+}
+span:hover{
+	box-shadow: 0 0 0;
+}
+input[type=checkbox] {
+	visibility: hidden;
+}
+.checkbox2 {
+	width: 130px;
+	height: 40px;
+	background: #1c262f;
+	margin: 40px 0px 15px 280px;
+
+	border-radius: 50px;
+	position: relative;
+}
+.checkbox2:before {
+	content: 'Done?';
+	position: absolute;
+	top: 12px;
+	left: 73px;
+	height: 2px;
+	color: white;
+	font-size: 16px;
+}
+.checkbox2:after {
+	content: 'Done';
+	position: absolute;
+	top: 12px;
+	left: 14px;
+	height: 2px;
+	color: #99ccff;
+	font-size: 16px;
+}
+.checkbox2 label {
+	display: block;
+	width: 52px;
+	height: 22px;
+	border-radius: 50px;
+
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 12px;
+	background: #ddd;
+}
+
+/**
+ * Create the checkbox event for the label
+ */
+.checkbox2 input[type=checkbox]:checked + label {
+	left: 68px;
+	background: #99ccff;
+}
+.checkbox1 {
+	width: 130px;
+	height: 40px;
+	background: #1c262f;
+	margin: 40px 0px 0px 280px;
+
+	border-radius: 50px;
+	position: relative;
+}
+.checkbox1:before {
+	content: 'Done?';
+	position: absolute;
+	top: 12px;
+	left: 73px;
+	height: 2px;
+	color: white;
+	font-size: 16px;
+}
+.checkbox1:after {
+	content: 'Done';
+	position: absolute;
+	top: 12px;
+	left: 14px;
+	height: 2px;
+	color: #99ccff;
+	font-size: 16px;
+}
+.checkbox1 label {
+	display: block;
+	width: 52px;
+	height: 22px;
+	border-radius: 50px;
+
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 12px;
+	background: #ddd;
+}
+
+/**
+ * Create the checkbox event for the label
+ */
+.checkbox1 input[type=checkbox]:checked + label {
+	left: 68px;
+	background: #99ccff;
+}
+</style>
+</head>
+<body style="background-color:#f2f1ff;">
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sideNav" class="col-lg-3" style="position: fixed;background-color:#2e3d49 ;color: white;">
+        <div style="background-color: #1c262f;width:225px;position: relative;right: 20px;padding: 10px;">
+  				<a href="user.html"><h2 style="padding-left:30px; color:white;">LDD</h2></a></div>
+  			<ul class="nav nav-pills nav-stacked">
+  				<li><a href="report.html"><h4 style="color: white;">Progress Report</h4></a></li>
+  				<li><a href="#"><h4 style="color: white;">Query</h4></a></li>
+			</ul>
+			<ul class="nav nav-pills nav-stacked" style="margin-top:300px;">
+      			<li><a href="#" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    		</ul>
+        </nav>
+        <div id="mainContent" class="col-lg-9">
+        	<h1 style="margin-left:20px;">Remedial Resources</h1><br>
+        	<div class="row" style="padding:0px 0px 20px 0px;">
+        	{% for i in obj %}
+	  			<div class="col-lg-3" style="margin-left: 50px ;width:40%;background-color: white;padding: 20px;box-shadow: 1px 1px 1px 1px grey">
+	  				<h2 style="color: #404040">{{r}}</h2> <br><br><br>
+
+	  				<hr>
+	  				<form> 
+	  				<a href="{{i.res_url}}"><button type="button" class="btn btn-default" style="position: relative;left:150px;border: 2px solid #99ccff;padding: 10px;">View PDF <i class="fa fa-file-pdf-o"></i></button></a><button type="button" class="btn btn-default" style="position: relative;left:170px;border: 2px solid #99ccff;padding: 10px;">Download PDF <i class="fa fa-download"></i></button><br>
+	  				<section>
+					  	<div class="checkbox1">
+					  		<input type="checkbox" value="1" id="checkbox1" name="" />
+						  	<label for="checkbox1"></label>
+					  	</div>
+					</section>
+	  				</form>
+	  			</div>
+	  		{% endfor %}
+  		</div>
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>

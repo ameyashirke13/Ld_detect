@@ -1,0 +1,58 @@
+{% extends "footer.html" %}
+{% load staticfiles %}
+{% block body %}
+<head>
+    
+</head>
+
+<body onload="f1()">
+    <div class="card-panel"><span class="blue-text text-darken-2" style="margin-left: 14%" id="starttime"><h4></h4></span>
+    </div>
+    <div class="row">
+      <div class="col s6 offset-s9"><span class="flow-text" id="showtime" style="position:fixed;"></span></div>
+  </div>
+  
+    
+  <html>
+<table>
+    <tr>
+        <th>Username</th>
+        ...
+        <th>Name</th>
+        <th>Standard</th>
+    </tr>
+    {% for item in query_results %}
+    <tr> 
+        <td>{{ item.field1 }}</td>
+        ...
+        <td>{{ item.fieldN }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+  
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+  <script>
+  
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+  
+</script>
+</body>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

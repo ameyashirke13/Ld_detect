@@ -1,0 +1,66 @@
+{% extends "footer.html" %}
+{% load staticfiles %}
+{% block body %}
+<body>
+  <script type="text/javascript">
+  function is_user () {
+    // body...
+    {% if user.is_authenticated %}
+      return true;
+    {% else %}
+      alert('Please Login or Register before continuing.');
+      return false;
+    {% endif %}
+  }
+  </script>
+  
+  <div style="margin-left: 10%">
+    <h4> Your score : {{score}} </h4>
+    <h5>Answers (shown in green)</h5>
+
+    <div class="row">
+      
+    {% for q , ans in qlist %}
+        <div class="divider"></div>
+        <div class="section">
+        <ul>{{forloop.counter}}. <b><em>{{ q.q_text }}</em></b>
+        {% if q.option1 == q.ans %}
+          <li><span style="color: green;"><strong>a.{{ q.option1 }}</strong></span></li>
+        {% else %}
+          <li><span>a.{{ q.option1 }}</span></li>
+        {% endif %}
+
+        {% if q.option2 == q.ans %}
+          <li><span style="color: green;"><strong>b.{{ q.option2 }}</strong></span></li>
+        {% else %}
+          <li><span>b.{{ q.option2 }}</span></li>
+        {% endif %}
+
+        {% if q.option3 == q.ans %}
+          <li><span style="color: green;"><strong>c.{{ q.option3 }}</strong></span></li>
+        {% else %}
+          <li><span>c.{{ q.option3 }}</span></li>
+        {% endif %}
+
+        {% if q.option4 == q.ans %}
+          <li><span style="color: green;"><strong>d.{{ q.option4 }}</strong></span></li>
+        {% else %}
+          <li><span>d.{{ q.option4 }}</span></li>
+        {% endif %}
+
+        {% if ans %}
+        <li><span><blockquote>You answered: {{ ans }}</blockquote></span></li>
+        {% else %}
+        <li><blockquote>You did not answer this question.</blockquote></li>
+        {% endif %}
+        </div>
+      </ul>
+
+    {% endfor %}
+    <a href="http://127.0.0.1:8000/test/count"><button>next</button></a> 
+    </form>
+  </div>
+</div>
+</body>
+
+{% endblock %}

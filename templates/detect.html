@@ -1,0 +1,52 @@
+{% extends "footer.html" %}
+{% load staticfiles %}
+{% block body %}
+
+<body>
+  <div class="card-panel">
+      <span class="blue-text text-darken-2"><h5 style="margin-left: 14%">We provide tests for the following fields :<h5></span>
+      
+   
+<div class="container">
+    <div class="section">
+  <div class="row">
+
+   
+
+      
+      <div id="res"><h1>Type of Learning Disability:</h1></div>
+      <div id="res1"><h1>Level of Learning Disability:</h1></div>
+      <div id="res2"> Marks obtained
+      <div>Reading:5</div>
+      <div>Writing:4</div>
+      <div>Speaking:4</div>
+      <div>Maths:5</div>
+      </div>
+    
+<div id="res3">
+  <a href="http://127.0.0.1:8000/test/user/">
+    <button type="button">View Profile</button>
+  </a>
+</div> 
+
+       
+
+      </div>
+</div>
+</div>
+
+  <script type="text/javascript">
+  function is_user () {
+    // body...
+    {% if user.is_authenticated %}
+      return true;
+    {% else %}
+      alert('Please Login or Register before continuing.');
+      return false;
+    {% endif %}
+  }
+    </script>
+
+
+  </body>
+  {% endblock %}
